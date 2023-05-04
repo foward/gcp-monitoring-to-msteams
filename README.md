@@ -27,11 +27,14 @@ gcloud functions deploy YOUR_FUNCTION_NAME \
 --memory=256MB \
 --region=YOUR_REGION \
 --runtime=go118 \
---trigger-topic=YOUR_PUBSUB_TOPIC \
+--trigger-topic=YOUR_PUBSUB_TOPIC_NAME \
 --min-instances 0 \
 --max-instances 3 \ 
 --ingress-settings internal-only
 ```
+
+Note: YOUR_PUBSUB_TOPIC_NAME is only the name and not the full path "projects/my-project/topics/my-topic", in this case just "my-topic"
+
 4. Configure GCP Monitoring PubSub notification channel in https://console.cloud.google.com/monitoring/alerting/notifications
 and please dont forget to add the service account from GCP Monitoring with a publisher role in the topic that you have created.
 
